@@ -1,4 +1,7 @@
 using API.Data;
+using API.Data.Entities;
+using API.Data.Interfaces;
+using API.Data.Repositories;
 using dotenv.net;
 using dotenv.net.Utilities;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 DotEnv.Load();
+builder.Services.AddScoped<IGenericRepository<Person>, PersonRepository>();
 builder.Services.AddControllers();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddDbContext<DataContext>(options =>

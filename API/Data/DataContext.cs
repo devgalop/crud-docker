@@ -11,6 +11,6 @@ namespace API.Data
     {
         public DataContext(DbContextOptions<DataContext> options):base(options){}
 
-        public DbSet<Person>? People { get; set; }
+        public DbSet<Person> People { get; set; } = null!;
     }
 }
